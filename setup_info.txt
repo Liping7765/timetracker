@@ -1,0 +1,60 @@
+CREATE TABLE IF NOT EXISTS timecards (
+    timecard_id INT AUTO_INCREMENT PRIMARY KEY,
+    catagory VARCHAR(255) NOT NULL,
+    start_time DECIMAL(20,8) NOT NULL,
+    end_time DECIMAL(20,8) NOT NULL,
+    record_created_at datetime default current_timestamp
+);
+
+
+
+
+# fix the node running issue 
+export NODE_OPTIONS=--openssl-legacy-provider
+
+
+#connect to aws instance 
+ssh -i "streamlit.pem" ubuntu@ec2-3-133-104-15.us-east-2.compute.amazonaws.com
+
+
+http://ec2-3-133-104-15.us-east-2.compute.amazonaws.com:8501/
+
+
+# database original data setup 
+
+create database tcs 
+
+CREATE TABLE IF NOT EXISTS students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
+    grade int
+    );
+
+
+INSERT INTO students(firstname, lastname, grade)
+VALUES ("Jack", "Ma", 1);
+
+INSERT INTO students(firstname, lastname, grade, latitude, longtitude)
+VALUES ("Alice", "Wu", 4),
+("Peter", "Chen", 2, 40.637600, -73.990234),
+("John", "Johnson", 3, 40.811406,-73.953130),
+("Ethan", "Grainger", 1, 40.748517,-73.885985),
+("Kris", "Ali", 5, 40.815587,-74.093491);
+
+
+# fix npm typescript issues 
+npm install typescript --save-dev
+
+
+# database setting up 
+
+Here are the commands that you have to type..
+sudo apt update
+sudo apt install mysql-server
+sudo mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+FLUSH PRIVILEGES;
+exit
+mysql -u root -p
+enter root password for mysql 
