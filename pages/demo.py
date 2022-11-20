@@ -50,7 +50,7 @@ rows = db.get_all()
 
 df = pd.DataFrame(
     np.array(rows),
-    columns=['id', 'catagory', 'start_time','end_time'])
+    columns=['id', 'catagory', 'start_time','end_time','time_stamp'])
 
 df["date"] = df.apply(lambda row: show_date(row.start_time), axis = 1)
 df['duration'] = df.apply(lambda row: show_time(row.start_time, row.end_time), axis = 1)
