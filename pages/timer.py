@@ -20,8 +20,8 @@ def ending_progress(seconds):
 
 def show_time(start_time, end_time):
 
-    start = dt.fromtimestamp(start_time)
-    end = dt.fromtimestamp(end_time)
+    start = dt.fromtimestamp(int(start_time))
+    end = dt.fromtimestamp(int(end_time))
     return str(end - start)
 
 def metric():
@@ -32,7 +32,7 @@ def metric():
     prev_catup = 0
     total_catup = 0
     for row in rows:
-        id, cat, start, end = row
+        id, cat, start, end, _ = row
         prev_catup = total_catup
         total_catup += end - start if cat != "WORKOUT" else (end - start) * 2
 

@@ -6,18 +6,18 @@ import requests
 
 # convert data to show dates 
 def show_date(time_in_secs):
-    return time.strftime("%m/%d/%Y", time.localtime(time_in_secs))
+    return time.strftime("%m/%d/%Y", time.localtime(int(time_in_secs)))
 
 
 def show_time(start_time, end_time):
 
-    start = dt.fromtimestamp(start_time)
-    end = dt.fromtimestamp(end_time)
+    start = dt.fromtimestamp(int(start_time))
+    end = dt.fromtimestamp(int(end_time))
     return str(end - start)
 
 def cal_time(start, end, cat):
-    t1 = time.localtime(start)
-    t2 = time.localtime(end)
+    t1 = time.localtime(int(start))
+    t2 = time.localtime(int(end))
 
     return time.mktime(t2) - time.mktime(t1) if cat != "WORKOUT" else (time.mktime(t2) - time.mktime(t1)) * 2
 
@@ -77,7 +77,7 @@ with st.sidebar:
     prev_catup = 0
     total_catup = 0
     for row in rows:
-        id, cat, start, end = row
+        id, cat, start, end, _ = row
         prev_catup = total_catup
         total_catup += end - start if cat != "WORKOUT" else (end - start) * 2
 
