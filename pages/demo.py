@@ -69,7 +69,7 @@ with col1:
     st.line_chart(data_by_date.groupby("date").sum())
 
 with col2:
-    st.bar_chart(data_by_cat.groupby('catagory').sum())
+    st.bar_chart(data_by_cat.groupby('catagory').sum(numeric_only =False))
 
 
 with st.sidebar:
