@@ -4,7 +4,7 @@ from database.database import Database
 from datetime import datetime as dt
 
 # GENERAL CONSTANTS
-catagories = ["WORKOUT", "STUDY", "GAMING"]
+catagories = ["WORKOUT", "STUDY", "FAMALY TIME"]
 
 def ending_progress(seconds):
         placeholder = st.empty()
@@ -17,7 +17,6 @@ def ending_progress(seconds):
         placeholder.empty()
 
 
-# metric 
 
 def show_time(start_time, end_time):
 
